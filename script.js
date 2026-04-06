@@ -1,6 +1,35 @@
 /**
  * CODIGO CREADO POR EAM96
  */
+// ========================================================
+// BLOQUEO CLIC
+// ========================================================
+
+// 1. Bloquear Click Derecho (Menú contextual)
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+// 2. Bloquear teclas específicas (F12, Ctrl+Shift+I, Ctrl+U, etc.)
+document.addEventListener('keydown', function(e) {
+    // Bloquear F12
+    if (e.key === 'F12' || e.keyCode === 123) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Bloquear Ctrl + Shift + I / J / C (Herramientas de desarrollador)
+    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Bloquear Ctrl + U (Ver código fuente)
+    if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
+        e.preventDefault();
+        return false;
+    }
+});
 
 console.log("%cCODIGO CREADO POR EAM96 - EXCLUSIVAMENTE PARA USO PERSONAL.", "color: #ff8822; font-size: 14px; font-weight: bold; background-color: #15062a; padding: 10px; border-radius: 5px;");
 
